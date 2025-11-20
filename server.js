@@ -4,8 +4,7 @@ const authRoutes = require("./routes/auth.routes");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 
-app.use("/auth", authRoutes);
+app.use("", authRoutes);
 
-app.listen(3001);
+app.listen(3002);

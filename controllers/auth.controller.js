@@ -5,6 +5,7 @@ const { signupTime } = require("../utils/time");
 
 exports.signup = async (req, res) => {
     const {email, password, name} = req.body;
+    console.log("auth signup 진입")
 
     try {
         const userRef = userDb.collection("users");
@@ -42,6 +43,7 @@ exports.signup = async (req, res) => {
 
 exports.login = async (req, res) => {
     const { email, password } = req.body;
+    console.log("auth login 진입")
 
     try {
         const userRef = userDb.collection("users");
@@ -84,6 +86,7 @@ exports.login = async (req, res) => {
 
 exports.verify = async (req, res) => {
     const { token } = req.body;
+    console.log("auth verify 진입")
 
     const decoded = verifyToken(token);
 
