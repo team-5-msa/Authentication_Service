@@ -1,6 +1,7 @@
 const { userDb } = require("../firebase");
 const { hashPassword, comparePassword } = require("../utils/hash");
 const { signToken, verifyToken } = require("../utils/jwt");
+const { signupTime } = require("../utils/time");
 
 exports.signup = async (req, res) => {
     const {email, password, name} = req.body;
@@ -22,7 +23,7 @@ exports.signup = async (req, res) => {
             password_hash,
             name,
             role : "user",
-            created_at : new Date().toISOString()
+            created_at : signupTime(new Date())
         };
 
         const userInputDB = await userRef.add(newUser);
