@@ -3,7 +3,7 @@ const { hashPassword, comparePassword } = require("../utils/hash");
 const { signToken, verifyToken } = require("../utils/jwt");
 const { signupTime } = require("../utils/time");
 
-exports.signup = async (req, res) => {
+const signup = async (req, res) => {
     const {email, password, name} = req.body;
     console.log("auth signup 진입")
 
@@ -41,7 +41,7 @@ exports.signup = async (req, res) => {
     }
 };
 
-exports.login = async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
     console.log("auth login 진입")
 
@@ -84,7 +84,7 @@ exports.login = async (req, res) => {
     }
 }
 
-exports.verify = async (req, res) => {
+const verify = async (req, res) => {
     const { token } = req.body;
     console.log("auth verify 진입")
 
@@ -101,3 +101,5 @@ exports.verify = async (req, res) => {
         decoded
     })
 }
+
+module.exports = { signup, login, verify }
