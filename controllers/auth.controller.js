@@ -28,7 +28,7 @@ exports.signup = async (req, res) => {
 
         const userInputDB = await userRef.add(newUser);
 
-        return res.json({
+        return res.status(200).json({
             message: "회원가입에 성공했습니다.",
             user_id : userInputDB.id
         })
@@ -70,7 +70,7 @@ exports.login = async (req, res) => {
             role : user.role
         });
 
-        return res.json({
+        return res.status(200).json({
             message : "로그인에 성공했습니다.",
             token
         })
@@ -93,7 +93,7 @@ exports.verify = async (req, res) => {
         })
     }
     
-    return res.json({
+    return res.status(200).json({
         valid : true,
         decoded
     })
