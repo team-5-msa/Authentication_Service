@@ -7,12 +7,12 @@ const signToken = (payload) => {
   return jwt.sign(payload, JWT_Token, { expiresIn: "2h" });
 };
 
-const verifyToken = (token) => {
-  try {
-    return jwt.verify(token, JWT_Token);
-  } catch (err) {
-    return null;
-  }
-};
+// const verifyToken = (token) => {
+//   try {
+//     return jwt.verify(token, JWT_Token);
+//   } catch (err) {
+//     return null;
+//   }
+// };
 
-module.exports = { signToken, verifyToken };
+module.exports = { signToken };
