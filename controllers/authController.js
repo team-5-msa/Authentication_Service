@@ -11,7 +11,7 @@ const signup = async (req, res) => {
         return res.status(200).json({
             success : true,
             data : resultSignup,
-            message : "회원가입에 성공했습니다."
+            message : "Signup Successful"
         });
     } catch (err) {
         if (err.message === "EMAIL_ALREDY_EXIST") {
@@ -36,8 +36,10 @@ const login = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            data: resultLogin,
-            message : "로그인에 성공했습니다."
+            data: {
+                "token" : resultLogin
+            },
+            message : "Login Successful"
         });
     } catch (err) {
         if (err.message === "USER_EMAIL_NOT_EXIST") {
@@ -58,7 +60,7 @@ const login = async (req, res) => {
         });
     }
 }
-/* 
+/* 추후에 중요한 유저 정보 더 가져와야 할 때 사용할 예정
 const verify = async (req, res) => {
     const { token } = req.body;
     console.log("auth verify 진입")
